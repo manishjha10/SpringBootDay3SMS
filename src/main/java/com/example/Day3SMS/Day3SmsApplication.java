@@ -10,4 +10,8 @@ public class Day3SmsApplication {
 		SpringApplication.run(Day3SmsApplication.class, args);
 	}
 
+	//  controller -> request
+	// Service -> logic
+	// Repository -> database
+	// Model -> data schema
 }
