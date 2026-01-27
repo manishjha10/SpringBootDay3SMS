@@ -22,8 +22,6 @@ public class StudentModel {
     private String name;
     private int age;
     private String email;
-
-
 }
 
 
