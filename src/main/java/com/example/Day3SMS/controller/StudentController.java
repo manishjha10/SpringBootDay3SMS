@@ -1,8 +1,13 @@
 package com.example.Day3SMS.controller;
 
+import com.example.Day3SMS.dto.StudentRequestDto;
+import com.example.Day3SMS.dto.StudentResponseDto;
 import com.example.Day3SMS.model.StudentModel;
 import com.example.Day3SMS.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import com.example.Day3SMS.dto.StudentRequestDto;
+
 
 import java.util.List;
 
@@ -18,7 +23,7 @@ public class StudentController {
 
 //    create function API
     @PostMapping("/add-student")
-    public StudentModel addStudent(@RequestBody StudentModel student) {
+    public StudentResponseDto addStudent(@Valid @RequestBody StudentRequestDto student) {
         return service.addStudent(student);
     }
 
@@ -35,8 +40,13 @@ public class StudentController {
     public void deleteStudent(@PathVariable String id) {
         service.deleteStudent(id);
     }
-
-
+    @PutMapping("/update/{id}")
+    public void updateStudent(
+            @PathVariable String id,
+            @RequestBody StudentRequestDto dto
+    ) {
+        service.updateStudent(id, dto);
+    }
 
 
 }
